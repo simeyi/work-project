@@ -7,10 +7,10 @@ export const Navbar = () => {
         Home
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center">
-        <div>Notifications</div>
+        <Link to="/notifications">Notifications</Link>
         <Link to="/orders">Orders</Link>
-        <div>Other</div>
-        <div>Help</div>
+        <Link to="/other">Other</Link>
+        <Link to="/help">Help</Link>
       </div>
     </div>
   );
