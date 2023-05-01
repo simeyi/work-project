@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <div className="border-2 border-black m-2 grid grid-cols-1 md:grid-cols-2">
+    <div className="border-2 border-black m-1 grid grid-cols-1 md:grid-cols-2">
       <Link className="justify-self-center md:justify-self-start" to="/">
         Home
       </Link>
