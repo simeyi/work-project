@@ -1,31 +1,35 @@
 import { Listbox } from "@headlessui/react";
 import { useState } from "react";
 
-const people = [
-  { id: 1, name: "Durward Reynolds", unavailable: false },
-  { id: 2, name: "Kenton Towne", unavailable: false },
-  { id: 3, name: "Therese Wunsch", unavailable: false },
-  { id: 4, name: "Benedict Kessler", unavailable: true },
-  { id: 5, name: "Katelyn Rohan", unavailable: false },
-];
+type TSelectInput = {
+  inputLabel: string;
+  items: string[];
+};
 
-export const SingleSelectInput = ({ label = "Test" }) => {
-  const [selectedPerson, setSelectedPerson] = useState(people[0]);
+export const SingleSelectInput = ({ inputLabel, items }: TSelectInput) => {
+  //TODO: find what should be default value
+  // should it be first item or a place holder with no value?
+  const [selectedItem, setSelectedItem] = useState(" ");
 
   return (
-    <Listbox value={selectedPerson} onChange={setSelectedPerson}>
-      <Listbox.Button>{selectedPerson.name}</Listbox.Button>
-      <Listbox.Options>
-        {people.map((person) => (
-          <Listbox.Option
-            key={person.id}
-            value={person}
-            disabled={person.unavailable}
-          >
-            {person.name}
-          </Listbox.Option>
-        ))}
-      </Listbox.Options>
-    </Listbox>
+    <>
+      <label>{inputLabel}</label>
+      <Listbox value={selectedItem} onChange={setSelectedItem}>
+        <Listbox.Button className="w-full text-left border-2 rounded-md p-2">
+          {selectedItem}
+        </Listbox.Button>
+        <Listbox.Options className="border-2 border-t-0 shadow-md rounded-md">
+          {items.map((item, index) => (
+            <Listbox.Option
+              key={index}
+              value={item}
+              className="p-2  cursor-pointer ui-active:bg-blue-500 ui-active:text-white  ui-not-active:text-black "
+            >
+              {item}
+            </Listbox.Option>
+          ))}
+        </Listbox.Options>
+      </Listbox>
+    </>
   );
 };
