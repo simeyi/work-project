@@ -29,7 +29,7 @@ export const FileUpload = ({ label, fileType, fileMax }: any) => {
       </label>
 
       {files.map((file: any) => (
-        <div>{file.name}</div>
+        <div key={file.name}>{file.name}</div>
       ))}
 
       <button
