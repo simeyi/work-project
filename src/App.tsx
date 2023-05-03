@@ -9,7 +9,7 @@ import { Notifications } from "./pages/Notifications";
 import { Order } from "./pages/Order";
 import { Other } from "./pages/Other";
 function App() {
-  const maintenanceMode = import.meta.env.VITE_MAINTENANCEMODE;
+  const maintenanceMode = import.meta.env.VITE_MAINTENANCEMODE||'false';
 
   return (
     <>
