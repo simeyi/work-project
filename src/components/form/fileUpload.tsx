@@ -2,10 +2,8 @@ import { useState } from "react";
 
 export const FileUpload = ({ label, fileType, fileMax }: any) => {
   const [selectedFile, setSelectedFile] = useState();
-  const [isSelected, setIsSelected] = useState(false);
   const changeHandler = (event: any) => {
     setSelectedFile(event.target.files);
-    setIsSelected(true);
   };
   const printFileDetails = () => {
     console.log(selectedFile);
