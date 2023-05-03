@@ -1,3 +1,4 @@
+import { SingleSelectInput } from "../components/form/singleSelectInput";
 import { TextInput } from "../components/form/textInput";
 
 export const Home = () => {
@@ -5,11 +6,16 @@ export const Home = () => {
     <div>
       <>Home</>
 
-      <TextInput
-        label="Name of the Request"
-        placeholder="Enter the name"
-        error={true}
-      />
+      <div className="m-2">
+        <TextInput
+          label="Name of the Request"
+          placeholder="Enter the name"
+          error={true}
+        />
+      </div>
+      <div className="m-2">
+        <SingleSelectInput />
+      </div>
     </div>
   );
 };
