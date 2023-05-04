@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const FileUpload = ({ label, fileType, fileMax }: any) => {
   const [selectedFile, setSelectedFile] = useState<any[]>([]);
