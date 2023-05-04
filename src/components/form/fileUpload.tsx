@@ -71,9 +71,11 @@ export const FileUpload = ({ label, fileType, fileMax }: any) => {
       </div>
 
       <div className="grid grid-cols-2">
-        {files.map((file: any) => (
+        {files.map((file: any, index) => (
           <>
-            <div className="px-4 py-2 text-sm text-gray-800 ">{file.name}</div>
+            <div key={index} className="px-4 py-2 text-sm text-gray-800 ">
+              {file.name}
+            </div>
             <div>
               <button
                 type="button"
