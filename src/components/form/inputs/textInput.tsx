@@ -13,7 +13,6 @@ export const TextInput = ({
   errorMessage: any | undefined;
   validation: unknown;
 }) => {
-  console.log(error);
   return (
     <>
       <div className="grid grid-cols-1">

@@ -1,5 +1,22 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import formJSON from "../../assets/form.json";
+import { Element } from "./Element";
+type FormData = {
+  firstName: string;
+  age: number;
+  lastName: string;
+};
+
+type Field = {
+  field_type: string;
+  field_label: string;
+  field_placeholder: string;
+  register: any;
+  name: string;
+  errorMessage: string | undefined;
+  validation: {};
+};
 
 export const Form = () => {
   const [elements, setElements] = useState<any>();
@@ -36,7 +53,7 @@ export const Form = () => {
   });
 
   useEffect(() => {
-    //setElements(formJSON);
+    setElements(formJSON);
   }, []);
 
   return (
