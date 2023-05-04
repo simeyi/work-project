@@ -1,5 +1,4 @@
 import { FileUpload } from "../components/form/inputs/fileUpload";
-import { SingleSelectInput } from "../components/form/inputs/singleSelectInput";
 
 const people = [
   "Durward Reynolds",
@@ -23,11 +22,11 @@ export const Home = () => {
         /> */}
       </div>
       <div className="m-2">
-        <SingleSelectInput
+        {/*  <SingleSelectInput
           inputLabel="Select Person"
           items={people}
           placeholderText="Select a Person..."
-        />
+        /> */}
       </div>
     </div>
   );
