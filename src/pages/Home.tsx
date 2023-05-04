@@ -1,5 +1,4 @@
-import { SingleSelectInput } from "../components/form/singleSelectInput";
-import { TextInput } from "../components/form/textInput";
+import { SingleSelectInput } from "../components/form/inputs/singleSelectInput";
 
 const people = [
   "Durward Reynolds",
@@ -15,11 +14,11 @@ export const Home = () => {
       <>Home</>
 
       <div className="m-2">
-        <TextInput
+        {/*   <TextInput
           label="Name of the Request"
           placeholder="Enter the name"
           error={true}
-        />
+        /> */}
       </div>
       <div className="m-2">
         <SingleSelectInput
