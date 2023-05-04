@@ -1,3 +1,4 @@
+import { NumericInput } from "./inputs/NumericInput";
 import { TextInput } from "./inputs/textInput";
 
 type Field = {
@@ -7,7 +8,7 @@ type Field = {
   register: any;
   name: string;
   errorMessage: string | undefined;
-  validation: unknown;
+  validation: {};
 };
 
 export const Element = (field: Field) => {
@@ -24,7 +25,7 @@ export const Element = (field: Field) => {
           errorMessage={field.errorMessage}
         />
       );
-    /*  case "Edm.Int32":
+    case "Edm.Int32":
       return (
         <NumericInput
           field_label={field.field_label}
@@ -34,7 +35,7 @@ export const Element = (field: Field) => {
           validation={field.validation}
           errorMessage={field.errorMessage}
         />
-      ); */
+      );
     default:
       return null;
   }
