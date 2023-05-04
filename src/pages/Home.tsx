@@ -22,7 +22,11 @@ export const Home = () => {
         />
       </div>
       <div className="m-2">
-        <SingleSelectInput inputLabel="Select Person" items={people} />
+        <SingleSelectInput
+          inputLabel="Select Person"
+          items={people}
+          placeholderText="Select a Person..."
+        />
       </div>
     </div>
   );
