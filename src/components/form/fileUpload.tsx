@@ -22,6 +22,7 @@ export const FileUpload = ({ label, fileType, fileMax }: any) => {
   };
   const printFileDetails = () => {
     console.log(selectedFile);
+    // TODO
   };
 
   const onDeleteFile = (file: any) => {
