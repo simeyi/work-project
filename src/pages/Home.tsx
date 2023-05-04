@@ -1,6 +1,5 @@
-import { SingleSelectInput } from "../components/form/singleSelectInput";
-import { TextInput } from "../components/form/textInput";
-import { FileUpload } from "../components/form/fileUpload";
+import { FileUpload } from "../components/form/inputs/fileUpload";
+import { SingleSelectInput } from "../components/form/inputs/singleSelectInput";
 
 const people = [
   "Durward Reynolds",
@@ -15,19 +14,13 @@ export const Home = () => {
     <div>
       <>Home</>
 
-      <TextInput
-        label="Name of the Request"
-        placeholder="Enter the name"
-        error={false}
-      />
-
       <FileUpload label="Attachment" fileType="XLSX, XLS" fileMax="20MB" />
       <div className="m-2">
-        <TextInput
+        {/*   <TextInput
           label="Name of the Request"
           placeholder="Enter the name"
           error={true}
-        />
+        /> */}
       </div>
       <div className="m-2">
         <SingleSelectInput
