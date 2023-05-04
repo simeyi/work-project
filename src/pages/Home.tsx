@@ -1,3 +1,4 @@
+import { FileUpload } from "../components/form/inputs/fileUpload";
 import { SingleSelectInput } from "../components/form/inputs/singleSelectInput";
 
 const people = [
@@ -13,6 +14,7 @@ export const Home = () => {
     <div>
       <>Home</>
 
+      <FileUpload label="Attachment" fileType="XLSX, XLS" fileMax="20MB" />
       <div className="m-2">
         {/*   <TextInput
           label="Name of the Request"
