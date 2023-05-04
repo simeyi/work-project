@@ -5,13 +5,13 @@ export const FileUpload = ({ label, fileType, fileMax }: any) => {
   const [selectedFile, setSelectedFile] = useState<any[]>([]);
 
   const onSelectFile = (event: any) => {
-    let aFiles: any[] = [];
+    const aFiles: any[] = [];
     if (selectedFile.length !== 0) {
       selectedFile.map((selectedFileItem) => {
         aFiles.push(selectedFileItem);
       });
     }
-    for (var i in event.target.files) {
+    for (const i in event.target.files) {
       const existFile = aFiles.find(
         (fileItem) => fileItem.name === event.target.files[i].name
       );
