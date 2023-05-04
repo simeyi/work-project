@@ -1,5 +1,4 @@
 export const TextInput = ({ label, placeholder, error }: any) => {
-  console.log(error);
   return (
     <>
       {!error && (
