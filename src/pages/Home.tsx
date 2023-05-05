@@ -1,5 +1,6 @@
 import { FileUpload } from "../components/form/inputs/fileUpload";
 import { SingleSelectInput } from "../components/form/inputs/singleSelectInput";
+import { RadioInput } from "../components/form/inputs/radioInput";
 
 const people = [
   "Durward Reynolds",
@@ -7,6 +8,12 @@ const people = [
   "Therese Wunsch",
   "Benedict Kessler",
   "Katelyn Rohan",
+];
+
+// const radioList = ["One", "Two", "Three"];
+const radioList = [
+  { code: "1", text: "One" },
+  { code: "2", text: "Two" },
 ];
 
 export const Home = () => {
@@ -27,6 +34,13 @@ export const Home = () => {
           inputLabel="Select Person"
           items={people}
           placeholderText="Select a Person..."
+        />
+      </div>
+      <div className="m-2">
+        <RadioInput
+          field_label="Select Radio"
+          radio_lists={radioList}
+          horizontal={false}
         />
       </div>
     </div>
