@@ -1,5 +1,3 @@
-import { FileUpload } from "../components/form/inputs/fileUpload";
-
 const people = [
   "Durward Reynolds",
   "Kenton Towne",
@@ -12,22 +10,6 @@ export const Home = () => {
   return (
     <div>
       <>Home</>
-
-      <FileUpload label="Attachment" fileType="XLSX, XLS" fileMax="20MB" />
-      <div className="m-2">
-        {/*   <TextInput
-          label="Name of the Request"
-          placeholder="Enter the name"
-          error={true}
-        /> */}
-      </div>
-      <div className="m-2">
-        {/*  <SingleSelectInput
-          inputLabel="Select Person"
-          items={people}
-          placeholderText="Select a Person..."
-        /> */}
-      </div>
     </div>
   );
 };

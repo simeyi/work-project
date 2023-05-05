@@ -1,7 +1,23 @@
-import { useState } from "react";
 import { TrashIcon } from "@radix-ui/react-icons";
+import { useState } from "react";
 
-export const FileUpload = ({ label, fileType, fileMax }: any) => {
+export const FileUpload = ({
+  field_label,
+  fileType,
+  fileMax,
+  register,
+  fieldname,
+  errorMessage,
+  validation,
+}: {
+  field_label: string;
+  fileType: any;
+  register: any;
+  fileMax: any;
+  fieldname: string;
+  errorMessage: any | undefined;
+  validation: unknown;
+}) => {
   const [selectedFile, setSelectedFile] = useState<any[]>([]);
 
   const onSelectFile = (event: any) => {
@@ -44,7 +60,7 @@ export const FileUpload = ({ label, fileType, fileMax }: any) => {
 
   return (
     <>
-      <label className="block text-gray-900">{label}</label>
+      <label className="block text-gray-900">{field_label}</label>
       <div className="relative flex flex-col text-gray-400 border border-gray-200 border-dashed rounded cursor-pointer">
         <input
           accept="*"
@@ -52,6 +68,7 @@ export const FileUpload = ({ label, fileType, fileMax }: any) => {
           onChange={onSelectFile}
           multiple
           className="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer"
+          {...register(fieldname, validation)}
         />
         <div className="flex flex-col items-center justify-center py-10 text-center">
           <svg
@@ -86,6 +103,7 @@ export const FileUpload = ({ label, fileType, fileMax }: any) => {
           </div>
         ))}
       </div>
+      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
 
       <button
         onClick={printFileDetails}
