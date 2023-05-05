@@ -1,4 +1,5 @@
 import { NumericInput } from "./inputs/NumericInput";
+import { SingleSelectInput } from "./inputs/singleSelectInput";
 import { TextInput } from "./inputs/textInput";
 
 type Field = {
@@ -28,6 +29,18 @@ export const Element = (field: Field) => {
     case "Edm.Int32":
       return (
         <NumericInput
+          field_label={field.field_label}
+          field_placeholder={field.field_placeholder}
+          name={field.name}
+          register={field.register}
+          validation={field.validation}
+          errorMessage={field.errorMessage}
+        />
+      );
+    case "Edm.Select":
+      return (
+        <SingleSelectInput
+          items={[]}
           field_label={field.field_label}
           field_placeholder={field.field_placeholder}
           name={field.name}
