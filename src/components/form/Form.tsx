@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import metadata from "../../assets/metadata.json";
+/* import metadata from "../../assets/metadata.json"; */
 import { Element } from "./Element";
 type FormData = {
   firstName: string;
