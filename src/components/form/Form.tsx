@@ -63,14 +63,18 @@ export const Form = () => {
   } = useForm<any>();
 
   const onSubmit = (data: FormData) => {
+    //TODO: get proper form return structure
     console.log(data);
   };
 
-  const fields = elements?.PROPERTIES.map((field: any, i: number) => {
+  const fields = elements?.PROPERTIES.map((field: TProperties) => {
     if (field.CREATABLE === "-") {
       return;
     }
-    console.log("🚀 ~ file: Form.tsx:88 ~ fields ~ field:", field);
+    //console.log("🚀 ~ file: Form.tsx:88 ~ fields ~ field:", field);
+
+    //TODO: add validation rules from metadata
+    // fill items from look up
     const validation = {
       /*  required: false,
       maxLength: {
