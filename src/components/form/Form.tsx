@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import formJSON from "../../assets/form.json";
+/* import metadata from "../../assets/metadata.json"; */
 import { Element } from "./Element";
 type FormData = {
   firstName: string;
@@ -18,6 +18,40 @@ type Field = {
   validation: {};
 };
 
+type TFormMetaData = {
+  NAME: string;
+  EXTERNAL_NAME: string;
+  ENTITY_ID: string;
+  SUBSCRIBABLE: string;
+  CREATABLE: string;
+  UPDATABLE: string;
+  DELETABLE: string;
+  PAGEABLE: string;
+  ADDRESSABLE: string;
+  ATTRIBUTE_STRUCT: string;
+  TYPE: string;
+  FREETEXT_SEARCH: string;
+  FILTER_REQUIRED: string;
+  SET_NAMES: string[];
+  PROPERTIES: TProperties[];
+};
+
+type TProperties = {
+  NAME: string;
+  EXTERNAL_NAME: string;
+  ENTITY_ID: string;
+  LENGTH: number;
+  CORE_TYPE: string;
+  IS_OPTIONAL: string;
+  IS_READ_ONLY: string;
+  CREATABLE: string;
+  FILTERABLE: string;
+  SORTABLE: string;
+  INTERNAL_TYPE: string;
+  INTERNAL_LENGTH: number;
+  LABEL: string;
+};
+
 export const Form = () => {
   const [elements, setElements] = useState<any>();
 
@@ -29,31 +63,39 @@ export const Form = () => {
   } = useForm<any>();
 
   const onSubmit = (data: FormData) => {
+    //TODO: get proper form return structure
     console.log(data);
   };
 
-  const fields = elements?.map((field: any, i: number) => {
+  const fields = elements?.PROPERTIES.map((field: TProperties) => {
+    if (field.CREATABLE === "-") {
+      return;
+    }
+    //console.log("🚀 ~ file: Form.tsx:88 ~ fields ~ field:", field);
+
+    //TODO: add validation rules from metadata
+    // fill items from look up
     const validation = {
-      required: false,
+      /*  required: false,
       maxLength: {
         value: Number.parseInt(field._attributes?.MaxLength),
         message: "MaxLength", // JS only: <p>error message</p> TS only support string
       },
-      valueAsNumber: field._attributes.Type === "Edm.Int32" ? true : false,
+      valueAsNumber: field.CORE_TYPE === "Edm.Int32" ? true : false, */
     };
     return {
-      field_label: field._attributes["sap:label"],
-      field_placeholder: field._attributes.Name,
-      field_type: field._attributes.Type,
-      name: field._attributes.Name,
+      field_label: field.LABEL,
+      field_placeholder: "field._attributes.Name",
+      field_type: field.CORE_TYPE,
+      name: field.NAME,
       register: register,
       validation: { ...validation },
-      errorMessage: errors[field._attributes.Name]?.message,
+      errorMessage: errors[field.NAME]?.message,
     };
   });
 
   useEffect(() => {
-    setElements(formJSON);
+    setElements(metadata);
   }, []);
 
   return (
