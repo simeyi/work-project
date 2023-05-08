@@ -2,15 +2,23 @@ import { Listbox } from "@headlessui/react";
 import { useState } from "react";
 
 type TSelectInput = {
-  inputLabel: string;
+  field_label: string;
   items: string[];
-  placeholderText: string;
+  field_placeholder: string;
+  register: any;
+  name: string;
+  errorMessage: any | undefined;
+  validation: unknown;
 };
 
 export const SingleSelectInput = ({
-  inputLabel,
+  field_label,
   items,
-  placeholderText,
+  field_placeholder,
+  register,
+  name,
+  errorMessage,
+  validation,
 }: TSelectInput) => {
   //TODO: find what should be default value
   // should it be first item or a place holder with no value?
@@ -19,13 +27,13 @@ export const SingleSelectInput = ({
 
   return (
     <>
-      <label className="block text-gray-900">{inputLabel}</label>
+      <label className="block text-gray-900">{field_label}</label>
       <Listbox value={selectedItem} onChange={setSelectedItem}>
         <Listbox.Button className="w-full text-left border-2 rounded-md p-2 mt-2">
           {selectedItem ? (
             <p className="text-black">{selectedItem}</p>
           ) : (
-            <p className="text-gray-500">{placeholderText}</p>
+            <p className="text-gray-500">{field_placeholder}</p>
           )}
         </Listbox.Button>
         <Listbox.Options className="border-2 border-t-0 shadow-md rounded-md">
@@ -33,6 +41,7 @@ export const SingleSelectInput = ({
             <Listbox.Option
               key={index}
               value={item}
+              {...register(name, validation)}
               className="p-2  cursor-pointer ui-active:bg-blue-500 ui-active:text-white  ui-not-active:text-black "
             >
               {item}
@@ -40,6 +49,7 @@ export const SingleSelectInput = ({
           ))}
         </Listbox.Options>
       </Listbox>
+      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
     </>
   );
 };
