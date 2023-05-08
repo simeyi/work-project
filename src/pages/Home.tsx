@@ -1,5 +1,5 @@
 import { LinkCard } from "../components/LinkCard";
-
+import { DateInput } from "../components/form/inputs/datePicker";
 /* const people = [
   "Durward Reynolds",
   "Kenton Towne",
@@ -45,6 +45,7 @@ export const Home = () => {
           label={"Notifications"}
         />
       </div>
+      <DateInput field_label="Date" errorMessage="" />
     </div>
   );
 };
