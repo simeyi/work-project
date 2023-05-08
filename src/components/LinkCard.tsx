@@ -12,8 +12,8 @@ export const LinkCard = ({
   return (
     <>
       <Link to={link}>
-        <div className="aspect-square border-2 w-48 md:w-48 p-2">
-          <div className="border-2 w-4/5 px-2 py-1">{label} </div>
+        <div className="aspect-square border-2 w-48 p-2">
+          <div className="border-2 w-full px-2 py-1">{label} </div>
           <div className="p-1 overflow-hidden text-ellipsis line-clamp-5">
             {description}
           </div>
