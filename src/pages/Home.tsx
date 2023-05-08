@@ -14,6 +14,9 @@ const radioList = [
   { code: "2", text: "Two" },
 ];
  */
+
+import { Banner } from "../components/Banner";
+
 export const Home = () => {
   return (
     <div>
@@ -41,6 +44,7 @@ export const Home = () => {
           label={"Notifications"}
         />
       </div>
+      <Banner />
     </div>
   );
 };
