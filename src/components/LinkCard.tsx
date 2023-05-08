@@ -13,7 +13,7 @@ export const LinkCard = ({
     <>
       <Link to={link}>
         <div className="aspect-square border-2 w-48 p-2">
-          <div className="border-2 w-full px-2 py-1">{label} </div>
+          <div className="border-2 w-full px-2 py-1 font-bold">{label} </div>
           <div className="p-1 overflow-hidden text-ellipsis line-clamp-5">
             {description}
           </div>
