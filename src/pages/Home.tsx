@@ -21,6 +21,7 @@ export const Home = () => {
   return (
     <div>
       <>Home</>
+      <Banner />
       <div className="w-fit m-auto p-2 grid gap-4 grid-cols-2 md:grid-cols-4 ">
         <LinkCard
           link={"/"}
@@ -44,7 +45,6 @@ export const Home = () => {
           label={"Notifications"}
         />
       </div>
-      <Banner />
     </div>
   );
 };
