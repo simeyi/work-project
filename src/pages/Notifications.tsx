@@ -3,6 +3,7 @@ import api from "../lib/api/notifications";
 
 export const Notifications = () => {
   const [form, setForm] = useState("");
+  console.log("🚀 ~ file: Notifications.tsx:6 ~ Notifications ~ form:", form);
 
   useEffect(() => {
     const getFormData = async () => {
