@@ -12,10 +12,14 @@ const radioList = [
   { code: "2", text: "Two" },
 ];
  */
+
+import { Banner } from "../components/Banner";
+
 export const Home = () => {
   return (
     <div>
       <>Home</>
+      <Banner />
     </div>
   );
 };
